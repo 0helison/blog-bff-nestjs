@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
-import { PostsService } from './posts.service';
-import { PostsController } from './posts.controller';
 import { CommentsService } from '../comments/comments.service';
 import { UsersService } from '../users/users.service';
-import { FetchPostAndCommentsWithAuthors } from './fetch-post-and-comments-with-authors.service';
+import { PostsService } from './services/posts.service';
+import { PostsController } from './controllers/posts.controller';
+import { FetchPostsAndCommentsWithAuthors } from './services/fetch-posts.service';
 
 @Module({
   providers: [
     PostsService,
     CommentsService,
     UsersService,
-    FetchPostAndCommentsWithAuthors,
+    FetchPostsAndCommentsWithAuthors,
   ],
   controllers: [PostsController],
 })

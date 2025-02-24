@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Client } from 'undici';
 
-type Posts = {
+export type Posts = {
   id: number;
   title: string;
   authorId: number;
@@ -24,7 +24,12 @@ export class PostsService {
 
     const data: Posts[] = (await body.json()) as Posts[];
 
-    const posts: { id: number; title: string }[] = [];
+    const posts: {
+      id: number;
+      title: string;
+      authorId: number;
+      author: string;
+    }[] = [];
 
     for (const post of data) {
       if (posts.length >= limit) continue;
@@ -32,6 +37,8 @@ export class PostsService {
       posts.push({
         id: post.id,
         title: post.title,
+        authorId: post.authorId,
+        author: '',
       });
     }
 
@@ -51,7 +58,7 @@ export class PostsService {
       title: data.title,
       text: data.text,
       authorId: data.authorId,
-      authorName: '',
+      author: '',
     };
   }
 }
