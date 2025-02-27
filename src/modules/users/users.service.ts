@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Http } from 'src/utils/http/http.service';
-import { UsersResponseType } from './types/users-renponse-type';
-import { UsersType } from './types/users-type';
+import { UsersResponseType } from '../../utils/types/users-renponse-type';
+import { UsersType } from '../../utils/types/users-type';
 
 @Injectable()
 export class UsersService {

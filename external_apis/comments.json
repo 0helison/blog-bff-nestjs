@@ -1,22 +1,22 @@
 {
-    "comments": [
-        {
+  "comments": [
+      {
           "id": 1,
-          "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+          "text": "This is a great example of how users engage with content, sharing their thoughts and opinions to contribute to the discussion.",
           "userId": 3,
           "postId": 1
-        },
-        {
-            "id": 2,
-            "text": "comment 2",
-            "userId": 4,
-            "postId": 1
-        },
-        {
+      },
+      {
+          "id": 2,
+          "text": "I really appreciate the insights shared in this post. It adds valuable perspective and encourages further discussion on the topic.",
+          "userId": 4,
+          "postId": 1
+      },
+      {
           "id": 3,
-          "text": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
-          "userId": 5,
+          "text": "The way content is presented plays a crucial role in capturing the reader's attention and enhancing overall engagement with the post.",
+          "userId": 8,
           "postId": 2
-        }
-    ]
+      }
+  ]
 }

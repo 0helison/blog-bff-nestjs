@@ -1,22 +1,22 @@
 {
-    "posts": [
-        {
+  "posts": [
+      {
           "id": 3,
-          "title": "An awesome post",
+          "title": "This is a third title",
           "authorId": 4,
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum iaculis pellentesque lectus ac commodo. Quisque id ullamcorper est. Nulla vel ligula risus. In sed mauris et magna ornare faucibus ut ac tellus. Maecenas iaculis tempus risus, vel viverra metus cursus at. Duis sit amet aliquam mi. Praesent in purus eget dolor mattis sagittis. Integer ligula sapien, rutrum ut sapien id, elementum cursus quam. Integer congue est sed odio varius condimentum. Sed tempus arcu sit amet justo consectetur ultricies. Proin congue metus leo, a pulvinar odio vulputate at. Etiam molestie nisi arcu, non sollicitudin augue porttitor vel.\nFusce maximus purus sit amet mi bibendum, sed ultricies enim finibus. Praesent ac felis venenatis, pulvinar massa a, accumsan orci. Etiam dapibus iaculis tellus id mollis. Vestibulum finibus sodales risus, quis cursus nibh porttitor vehicula. Suspendisse dictum nisl et turpis iaculis tempus. Aenean vehicula erat est, tempor accumsan dolor sagittis vitae. Integer ultricies orci non augue malesuada luctus.\nAenean eu cursus purus, ut molestie odio. Maecenas in bibendum ipsum, nec mattis elit. Aliquam et lectus rhoncus, accumsan nunc in, pretium sem. Quisque tellus turpis, imperdiet non nibh eget, malesuada ultrices augue. Integer vitae aliquet eros. Ut eget gravida purus, quis tempor urna. Nullam condimentum lacinia urna, eu sodales arcu convallis non. Proin nulla elit, luctus eu nulla a, venenatis consectetur justo. Nullam ut urna auctor, hendrerit nunc eget, tincidunt est. Curabitur vestibulum urna non scelerisque congue. Donec quis ex malesuada, porttitor tellus vitae, mollis tellus. Mauris eleifend rutrum lorem eget feugiat. Curabitur lobortis tellus in augue commodo, ac tempus justo ultrices."
-        },
-        {
+          "text": "Creating engaging content is essential for capturing the reader's attention. A well-structured article not only informs but also maintains interest throughout the reading experience. Writers should focus on clarity, coherence, and readability, ensuring that their message is effectively conveyed. Additionally, incorporating real-world examples, storytelling techniques, and visual elements can significantly enhance the overall impact of the content. It’s also important to consider the target audience and tailor the tone and style accordingly. When executed properly, high-quality writing fosters engagement, encourages discussion, and leaves a lasting impression on the reader, making the content more valuable and shareable."
+      },
+      {
           "id": 2,
-          "title": "Another cool post",
+          "title": "This is a second title",
           "authorId": 5,
-          "text": "Fusce maximus purus sit amet mi bibendum, sed ultricies enim finibus. Praesent ac felis venenatis, pulvinar massa a, accumsan orci. Etiam dapibus iaculis tellus id mollis. Vestibulum finibus sodales risus, quis cursus nibh porttitor vehicula. Suspendisse dictum nisl et turpis iaculis tempus. Aenean vehicula erat est, tempor accumsan dolor sagittis vitae. Integer ultricies orci non augue malesuada luctus."
-        },
-        {
+          "text": "The structure of a post plays a critical role in how effectively information is conveyed to the audience. A well-organized piece should follow a logical flow, beginning with an engaging introduction, followed by detailed explanations, and concluding with a strong takeaway. Readers are more likely to stay engaged when the content is easy to follow and visually appealing. Formatting, such as bullet points, subheadings, and paragraphs of moderate length, improves readability. Furthermore, integrating credible sources and supporting data enhances the reliability of the post, making it a valuable resource for readers seeking in-depth knowledge on a given topic."
+      },
+      {
           "id": 1,
-          "title": "This is a big title post so we can see how it fits the screen",
+          "title": "This is a first title",
           "authorId": 6,
-          "text": "Aenean eu cursus purus, ut molestie odio. Maecenas in bibendum ipsum, nec mattis elit. Aliquam et lectus rhoncus, accumsan nunc in, pretium sem. Quisque tellus turpis, imperdiet non nibh eget, malesuada ultrices augue. Integer vitae aliquet eros. Ut eget gravida purus, quis tempor urna. Nullam condimentum lacinia urna, eu sodales arcu convallis non. Proin nulla elit, luctus eu nulla a, venenatis consectetur justo. Nullam ut urna auctor, hendrerit nunc eget, tincidunt est. Curabitur vestibulum urna non scelerisque congue. Donec quis ex malesuada, porttitor tellus vitae, mollis tellus. Mauris eleifend rutrum lorem eget feugiat. Curabitur lobortis tellus in augue commodo, ac tempus justo ultrices."
-        }
-    ]
+          "text": "Effective communication in writing relies not only on the quality of the content but also on how it resonates with the audience. Strong writing involves using clear and concise language, avoiding unnecessary jargon, and maintaining a consistent tone throughout the text. Engaging posts often pose thought-provoking questions, share insightful perspectives, and provide actionable advice. When readers find value in the content, they are more likely to interact with it through comments, discussions, and shares. By focusing on audience engagement, writers can create content that is not only informative but also fosters meaningful connections with their readers."
+      }
+  ]
 }

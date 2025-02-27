@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Http } from 'src/utils/http/http.service';
-import { CommentsType } from './types/comments-type';
+import { CommentsType } from '../../utils/types/comments-type';
 
 @Injectable()
 export class CommentsService {
@@ -16,7 +16,7 @@ export class CommentsService {
         path: `/comments`,
         query: { postId },
       },
-      { timeout: 5000 },
+      { timeout: 3000 },
     )) as CommentsType[];
 
     return response.slice(0, limit).map(({ id, text, userId }) => ({

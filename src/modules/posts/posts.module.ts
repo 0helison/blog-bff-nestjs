@@ -1,19 +1,17 @@
 import { Module } from '@nestjs/common';
-import { CommentsService } from '../comments/comments.service';
-import { UsersService } from '../users/users.service';
 import { PostsService } from './services/posts.service';
-import { PostsController } from './controllers/posts.controller';
-import { FetchPostsAndCommentsWithAuthors } from './services/fetch-posts.service';
 import { UtilsModule } from 'src/utils/utils.module';
+import { PostsCircuitBreakerService } from './services/posts-circuit-breaker.service';
+import { PostCircuitBreakerService } from './services/post-circuit-breaker.service';
+import { PostService } from './services/post.service';
 
 @Module({
   imports: [UtilsModule],
   providers: [
     PostsService,
-    CommentsService,
-    UsersService,
-    FetchPostsAndCommentsWithAuthors,
+    PostsCircuitBreakerService,
+    PostService,
+    PostCircuitBreakerService,
   ],
-  controllers: [PostsController],
 })
 export class PostsModule {}
