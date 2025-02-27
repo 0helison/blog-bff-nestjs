@@ -5,9 +5,10 @@ import { CommentsModule } from './modules/comments/comments.module';
 import { PostsModule } from './modules/posts/posts.module';
 
 import { UsersModule } from './modules/users/users.module';
+import { UtilsModule } from './utils/utils.module';
 
 @Module({
-  imports: [CommentsModule, PostsModule, UsersModule],
+  imports: [CommentsModule, PostsModule, UsersModule, UtilsModule],
   controllers: [AppController],
   providers: [AppService],
 })

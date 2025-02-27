@@ -1,48 +1,30 @@
-import { Injectable } from '@nestjs/common';
-import { Client } from 'undici';
-
-type Comments = {
-  id: number;
-  text: string;
-  userId: number;
-  postId: number;
-};
+import { Inject, Injectable } from '@nestjs/common';
+import { Http } from 'src/utils/http/http.service';
+import { CommentsType } from './types/comments-type';
 
 @Injectable()
 export class CommentsService {
-  private client: Client;
+  constructor(@Inject('HttpComments') private readonly http: Http) {}
 
-  constructor() {
-    this.client = new Client('http://localhost:3002');
-  }
+  async getComments(
+    postId: number,
+    limit: number = 5,
+  ): Promise<CommentsType[]> {
+    const response = (await this.http.request<CommentsType[]>(
+      {
+        method: 'GET',
+        path: `/comments`,
+        query: { postId },
+      },
+      { timeout: 5000 },
+    )) as CommentsType[];
 
-  async getComments(postId: number, limit: number = 5) {
-    const { body } = await this.client.request({
-      method: 'GET',
-      path: `/comments`,
-      query: { postId },
-    });
-
-    const data: Comments[] = (await body.json()) as Comments[];
-
-    const comments: {
-      id: number;
-      text: string;
-      userId: number;
-      user: string;
-    }[] = [];
-
-    for (const comment of data) {
-      if (comments.length >= limit) continue;
-
-      comments.push({
-        id: comment.id,
-        text: comment.text,
-        userId: comment.userId,
-        user: '',
-      });
-    }
-
-    return comments;
+    return response.slice(0, limit).map(({ id, text, userId }) => ({
+      id,
+      text,
+      userId,
+      postId,
+      user: '',
+    }));
   }
 }

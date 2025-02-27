@@ -1,33 +1,22 @@
-import { Injectable } from '@nestjs/common';
-import { Client } from 'undici';
-
-type Users = {
-  id: number;
-  name: string;
-};
+import { Inject, Injectable } from '@nestjs/common';
+import { Http } from 'src/utils/http/http.service';
+import { UsersResponseType } from './types/users-renponse-type';
+import { UsersType } from './types/users-type';
 
 @Injectable()
 export class UsersService {
-  private client: Client;
-  constructor() {
-    this.client = new Client('http://localhost:3003');
-  }
+  constructor(@Inject('HttpUsers') private readonly http: Http) {}
 
-  async getUsers(ids: number[]) {
-    const { body } = await this.client.request({
-      method: 'GET',
-      path: '/users',
-      query: { id: ids },
-    });
+  async getUsers(ids: number[]): Promise<UsersResponseType> {
+    const response = (await this.http.request<UsersType[]>(
+      {
+        method: 'GET',
+        path: '/users',
+        query: { id: ids },
+      },
+      { timeout: 5000 },
+    )) as UsersType[];
 
-    const data: Users[] = (await body.json()) as Users[];
-
-    const users = new Map<number, string>();
-
-    for (const user of data) {
-      users.set(user.id, user.name);
-    }
-
-    return Object.fromEntries(users);
+    return Object.fromEntries(response.map(({ id, name }) => [id, name]));
   }
 }

@@ -2,6 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { CommentsService } from '../../comments/comments.service';
 import { UsersService } from '../../users/users.service';
 import { PostsService } from './posts.service';
+import { PostsType } from '../types/posts-type';
+import { UsersResponseType } from 'src/modules/users/types/users-renponse-type';
+import { CommentsType } from 'src/modules/comments/types/comments-type';
+import { PostsResponse } from '../types/posts-response';
+import { PostResponse } from '../types/post-response';
 
 @Injectable()
 export class FetchPostsAndCommentsWithAuthors {
@@ -11,31 +16,35 @@ export class FetchPostsAndCommentsWithAuthors {
     private readonly usersService: UsersService,
   ) {}
 
-  async getFetchPosts() {
-    const posts = await this.postsService.getPosts();
+  async fetchPosts(): Promise<PostsResponse[]> {
+    const posts: PostsType[] = await this.postsService.getPosts();
 
-    const uniqueAuthorsIds = [...new Set(posts.map((post) => post.authorId))];
+    const uniqueAuthorsIds: number[] = [
+      ...new Set(posts.map((post) => post.authorId)),
+    ];
 
-    const authors = await this.usersService.getUsers(uniqueAuthorsIds);
+    const authors: UsersResponseType =
+      await this.usersService.getUsers(uniqueAuthorsIds);
 
     return posts.map((post) => ({
-      ...post,
+      id: post.id,
+      title: post.title,
       author: authors[post.authorId],
-      authorId: undefined,
     }));
   }
 
-  async getFetchPost(id: number) {
-    const [post, comments] = await Promise.all([
+  async fetchPost(id: number): Promise<PostResponse> {
+    const [post, comments]: [PostsType, CommentsType[]] = await Promise.all([
       this.postsService.getPost(id),
       this.commentsService.getComments(id),
     ]);
 
-    const uniqueUsersIds = [
+    const uniqueUsersIds: number[] = [
       ...new Set([post.authorId, ...comments.map((c) => c.userId)]),
     ];
 
-    const users = await this.usersService.getUsers(uniqueUsersIds);
+    const users: UsersResponseType =
+      await this.usersService.getUsers(uniqueUsersIds);
 
     return {
       id: post.id,

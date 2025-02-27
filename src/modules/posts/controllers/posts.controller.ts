@@ -9,11 +9,11 @@ export class PostsController {
 
   @Get()
   findAll(): Promise<any> {
-    return this.fetchPostsAndCommentsWithAuthors.getFetchPosts();
+    return this.fetchPostsAndCommentsWithAuthors.fetchPosts();
   }
 
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<any> {
-    return this.fetchPostsAndCommentsWithAuthors.getFetchPost(id);
+    return this.fetchPostsAndCommentsWithAuthors.fetchPost(id);
   }
 }
