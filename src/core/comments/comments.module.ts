@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { CommentsService } from './comments.service';
 import { UtilsModule } from 'src/utils/utils.module';
 import { CommentsCircuitBreakerService } from './comments-circuit-breaker.service';
+import { CommentsService } from './comments.service';
 
 @Module({
   imports: [UtilsModule],
-  providers: [CommentsService, CommentsCircuitBreakerService],
+  providers: [CommentsCircuitBreakerService, CommentsService],
+  exports: [CommentsCircuitBreakerService, CommentsService],
 })
 export class CommentsModule {}

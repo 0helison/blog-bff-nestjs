@@ -6,17 +6,14 @@ import { CommentsType } from '../../utils/types/comments-type';
 export class CommentsService {
   constructor(@Inject('HttpComments') private readonly http: Http) {}
 
-  async getComments(
-    postId: number,
-    limit: number = 5,
-  ): Promise<CommentsType[]> {
+  async getComments(postId: number, limit: number): Promise<CommentsType[]> {
     const response = (await this.http.request<CommentsType[]>(
       {
         method: 'GET',
         path: `/comments`,
         query: { postId },
       },
-      { timeout: 3000 },
+      { timeout: 2000 },
     )) as CommentsType[];
 
     return response.slice(0, limit).map(({ id, text, userId }) => ({

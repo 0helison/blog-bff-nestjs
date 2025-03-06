@@ -3,5 +3,5 @@ export type CommentsType = {
   text: string;
   userId: number;
   postId: number;
-  user?: string;
+  user: string;
 };

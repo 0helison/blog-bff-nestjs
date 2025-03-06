@@ -6,7 +6,7 @@ import { PostsType } from '../../../utils/types/posts-type';
 export class PostsService {
   constructor(@Inject('HttpPosts') private readonly http: Http) {}
 
-  async getPosts(limit: number = 5): Promise<PostsType[]> {
+  async getPosts(limit: number): Promise<PostsType[]> {
     const response = (await this.http.request<PostsType[]>(
       {
         method: 'GET',

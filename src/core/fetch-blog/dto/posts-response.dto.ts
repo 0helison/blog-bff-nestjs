@@ -1,5 +1,5 @@
-export type PostsResponse = {
+export class PostsResponseDto {
   id: number;
   title: string;
   author: string;
-};
+}

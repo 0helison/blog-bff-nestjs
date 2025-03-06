@@ -3,5 +3,5 @@ export type PostsType = {
   title: string;
   authorId: number;
   text: string;
-  author?: string;
+  author: string;
 };
