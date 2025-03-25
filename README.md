@@ -106,5 +106,9 @@ curl -Ss http://localhost:3000/posts/1 | jq
     }
   ]
 }
-    
+```
+#### Run tests:
+
+```bash
+yarn test
 ```
