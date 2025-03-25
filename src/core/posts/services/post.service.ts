@@ -7,13 +7,13 @@ export class PostService {
   constructor(@Inject('HttpPosts') private readonly http: Http) {}
 
   async getPost(id: number): Promise<PostsType> {
-    const response = (await this.http.request<PostsType>(
+    const response = await this.http.sendRequest<PostsType>(
       {
         method: 'GET',
         path: `/posts/${id}`,
       },
       { timeout: 2000 },
-    )) as PostsType;
+    );
 
     return {
       id: response.id,

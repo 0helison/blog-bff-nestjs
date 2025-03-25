@@ -7,7 +7,7 @@ export class CommentsService {
   constructor(@Inject('HttpComments') private readonly http: Http) {}
 
   async getComments(postId: number, limit: number): Promise<CommentsType[]> {
-    const response = (await this.http.request<CommentsType[]>(
+    const response = (await this.http.sendRequest<CommentsType[]>(
       {
         method: 'GET',
         path: `/comments`,

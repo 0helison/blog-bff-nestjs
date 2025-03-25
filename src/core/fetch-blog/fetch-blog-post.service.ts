@@ -21,21 +21,21 @@ export class FetchBlogPost {
       this.commentsCircuitBreakersService.getCommentsWithCircuitBreaker(id),
     ]);
 
-    const author: UsersType =
+    const author: UsersType | [] =
       await this.usersCircuitBreakerService.getUsersWithCircuitBreaker(
         post.authorId,
       );
 
     const usersByCommentsPromise: Promise<CommentsType>[] = comments.map(
       async (comment) => {
-        const commentAuthor: UsersType =
+        const commentAuthor: UsersType | [] =
           await this.usersCircuitBreakerService.getUsersWithCircuitBreaker(
             comment.userId,
           );
 
         return {
           ...comment,
-          user: commentAuthor.name,
+          user: Array.isArray(commentAuthor) ? '' : commentAuthor.name,
           userId: undefined,
         };
       },
@@ -49,7 +49,7 @@ export class FetchBlogPost {
       id: post.id,
       title: post.title,
       text: post.text,
-      author: author.name,
+      author: Array.isArray(author) ? '' : author.name,
       comments: commentsData.map((comment) => ({
         id: comment.id,
         text: comment.text,

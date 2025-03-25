@@ -7,7 +7,7 @@ export class UsersService {
   constructor(@Inject('HttpUsers') private readonly http: Http) {}
 
   async getUser(id: number): Promise<UsersType> {
-    const response = await this.http.request<UsersType>(
+    const response = await this.http.sendRequest<UsersType>(
       {
         method: 'GET',
         path: `/users/${id}`,

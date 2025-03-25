@@ -18,7 +18,7 @@ export class FetchBlogPosts {
 
     const usersByPostsPromise: Promise<PostsType>[] = posts.map(
       async (post) => {
-        const postAuthor: UsersType =
+        const postAuthor: UsersType | [] =
           await this.usersCircuitBreakerService.getUsersWithCircuitBreaker(
             post.authorId,
           );
@@ -26,7 +26,7 @@ export class FetchBlogPosts {
         return {
           ...post,
           authorId: undefined,
-          author: postAuthor.name,
+          author: Array.isArray(postAuthor) ? '' : postAuthor.name,
         };
       },
     );

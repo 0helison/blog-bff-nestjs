@@ -47,7 +47,7 @@ export class CommentsCircuitBreakerService {
   async getCommentsWithCircuitBreaker(
     postId,
     limit = 5,
-  ): Promise<CommentsType[]> {
+  ): Promise<CommentsType[] | []> {
     /*const { rejects, failures, fallbacks, successes } =
       this.commentsCircuitBreaker.stats;
 

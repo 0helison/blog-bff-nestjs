@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import Redis, { Redis as RedisClient } from 'ioredis';
+import Redis from 'ioredis';
 
 @Injectable()
 export class RedisService {
-  private readonly redisClient: RedisClient;
+  private readonly redisClient: Redis;
 
   constructor() {
     this.redisClient = new Redis({
@@ -12,7 +12,7 @@ export class RedisService {
     });
   }
 
-  getClient(): RedisClient {
+  getClient(): Redis {
     return this.redisClient;
   }
 

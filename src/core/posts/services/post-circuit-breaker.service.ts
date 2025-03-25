@@ -43,7 +43,7 @@ export class PostCircuitBreakerService {
         title: 'Post Unavailable',
         authorId: 0,
         text: 'The post is currently unavailable. Please try again later.',
-        author: '',
+        author: 'User 0',
       };
     });
   }

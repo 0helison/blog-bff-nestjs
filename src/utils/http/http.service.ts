@@ -11,7 +11,7 @@ export class Http {
     this.client = new Client(url);
   }
 
-  async request<T>(
+  async sendRequest<T>(
     params: Dispatcher.RequestOptions,
     options: { timeout: number },
   ): Promise<T> {

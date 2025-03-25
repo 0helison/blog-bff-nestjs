@@ -12,15 +12,22 @@ export class UsersCircuitBreakerService {
     private readonly usersService: UsersService,
     private readonly redisService: RedisService,
   ) {
-    this.userscircuitBreaker = new CircuitBreaker(async (id: number) => {
-      return this.redisService.getOrSetCache(
-        `user:${id}`,
-        `user-stale:${id}`,
-        60,
-        6000,
-        () => this.usersService.getUser(id),
-      );
-    });
+    this.userscircuitBreaker = new CircuitBreaker(
+      async (id: number) => {
+        return this.redisService.getOrSetCache(
+          `user:${id}`,
+          `user-stale:${id}`,
+          60,
+          6000,
+          () => this.usersService.getUser(id),
+        );
+      },
+      {
+        timeout: 3000,
+        errorThresholdPercentage: 50,
+        resetTimeout: 10000,
+      },
+    );
 
     this.userscircuitBreaker.fallback(async (id: number) => {
       const cachedData = await this.redisService
@@ -35,7 +42,7 @@ export class UsersCircuitBreakerService {
     });
   }
 
-  async getUsersWithCircuitBreaker(id: number): Promise<UsersType> {
+  async getUsersWithCircuitBreaker(id: number): Promise<UsersType | []> {
     /*const { rejects, failures, fallbacks, successes } =
       this.userscircuitBreaker.stats;
 

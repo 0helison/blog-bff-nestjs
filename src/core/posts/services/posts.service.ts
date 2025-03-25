@@ -7,7 +7,7 @@ export class PostsService {
   constructor(@Inject('HttpPosts') private readonly http: Http) {}
 
   async getPosts(limit: number): Promise<PostsType[]> {
-    const response = (await this.http.request<PostsType[]>(
+    const response = (await this.http.sendRequest<PostsType[]>(
       {
         method: 'GET',
         path: `/posts`,
